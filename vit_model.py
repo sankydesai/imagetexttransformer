@@ -178,35 +178,35 @@ model=ViT(vit_config)
 
 model(model.embedder(torch.randn((1,3,1024,1024)),"Hello How are you?")).shape
 
-import torch.nn as nn
-import torch
-import torch.nn.functional as F
+# import torch.nn as nn
+# import torch
+# import torch.nn.functional as F
 
-# Define the input tensor with shape [batch_size, in_channels, height, width]
-input_tensor = torch.randn(1, 12, 4103, 768)
+# # Define the input tensor with shape [batch_size, in_channels, height, width]
+# input_tensor = torch.randn(1, 12, 4103, 768)
 
-def ins(img):
+# def ins(img):
 
 
-  t1=img.permute((0,1,3,2)).unfold(3,1024,1024).reshape((1,-1,1024,1024))
-  print(t1.shape)
-  # t1=t1.unfold(3,1024,1024)
-  # print(t1.shape)
-  # t1=t1.reshape((1,-1,1024,1024))
-  # print(t1.shape)
+#   t1=img.permute((0,1,3,2)).unfold(3,1024,1024).reshape((1,-1,1024,1024))
+#   print(t1.shape)
+#   # t1=t1.unfold(3,1024,1024)
+#   # print(t1.shape)
+#   # t1=t1.reshape((1,-1,1024,1024))
+#   # print(t1.shape)
 
-  conv1=nn.Conv2d(in_channels=36,out_channels=18,kernel_size=1)
+#   conv1=nn.Conv2d(in_channels=36,out_channels=18,kernel_size=1)
 
-  conv2=nn.Conv2d(in_channels=18,out_channels=9,kernel_size=1)
-  conv3=nn.Conv2d(in_channels=9,out_channels=3,kernel_size=1)
+#   conv2=nn.Conv2d(in_channels=18,out_channels=9,kernel_size=1)
+#   conv3=nn.Conv2d(in_channels=9,out_channels=3,kernel_size=1)
 
-  out=conv3(conv2(conv1(t1)))
-  return out.shape
+#   out=conv3(conv2(conv1(t1)))
+#   return out.shape
 
-ins(input_tensor)
+# ins(input_tensor)
 
-input_tensor = torch.randn(12, 4103, 768)
-print(input_tensor.shape)
-input_tensor.unsqueeze_(0).shape
-print(input_tensor.shape)
+# input_tensor = torch.randn(12, 4103, 768)
+# print(input_tensor.shape)
+# input_tensor.unsqueeze_(0).shape
+# print(input_tensor.shape)
 
